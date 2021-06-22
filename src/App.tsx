@@ -1,13 +1,14 @@
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-import { Home } from './pages/Home';
-import { NewRoom } from './pages/NewRoom';
+import { AppProvider } from './contexts/index';
+import { Routes } from './routes';
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Route path="/" exact component={Home} />
-      <Route path="/rooms/new" component={NewRoom} />
-    </BrowserRouter>
+    <Router>
+      <AppProvider>
+        <Routes />
+      </AppProvider>
+    </Router>
   );
 }
